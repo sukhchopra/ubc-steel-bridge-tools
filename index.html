@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><meta name="theme-color" content="#061d5c">
+<title>Construction Sequence Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a team tool's front door, plain and confident
+   IDEA: the workflow as a three-step drawing sheet: S-FRAME model → bridge file → sequence
+   PICTURE: a flow strip of the three files, with the two tools as large cards
+   COLOUR/TYPE: UBC Steel Bridge navy, steel grey, maple red on white; Archivo + Inter
+   LAYOUT: brand bar, title, flow strip, two tool cards, samples, notes */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0b1222);--card:light-dark(#f5f7fb,#141e35);--ink:light-dark(#0f1a33,#e6ebf5);--muted:light-dark(#5b6782,#9aa6c0);--line:light-dark(#d5dbe6,#26324d);--navy:#061d5c;--hat:light-dark(#061d5c,#8fb2ff);--maple:#d6322f}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+header{background:#fff;border-top:3px solid var(--maple);border-bottom:3px solid var(--navy);padding:10px max(5vw,16px);display:flex;align-items:center;gap:16px}
+header img{height:44px}header span{font:600 11px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#6d6d6d;text-transform:uppercase;border-left:1px solid #d5dbe6;padding-left:14px}
+main{max-width:1100px;margin:0 auto;padding:clamp(28px,4vw,56px) max(5vw,16px) 64px}
+h1{font:800 clamp(32px,5vw,48px)/1.05 Archivo,sans-serif;margin:0 0 12px;text-wrap:balance;color:var(--hat)}
+.lead{font-size:17px;color:var(--muted);max-width:62ch;margin:0 0 28px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,auto));align-items:center;gap:10px;margin:0 0 32px;font:500 13px 'JetBrains Mono',monospace}
+.flow div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);text-align:center}
+.flow b{display:block;font:700 15px Archivo,sans-serif;color:var(--ink);margin-bottom:2px}
+.flow i{color:var(--maple);font-style:normal;font-size:20px;text-align:center}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tool{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.tool:hover,.tool:focus-visible{border-color:var(--hat);transform:translateY(-2px);outline:none}
+.tool .n{font:700 12px 'JetBrains Mono',monospace;color:var(--maple)}
+.tool h2{font:800 26px/1.1 Archivo,sans-serif;margin:0}
+.tool p{margin:0;color:var(--muted)}
+.tool ul{margin:4px 0 0;padding-left:18px;font-size:15px}
+.tool .go{margin-top:auto;font-weight:600;color:var(--hat)}
+h3{font:800 20px Archivo,sans-serif;margin:40px 0 10px}
+.files a{display:inline-block;margin:0 10px 8px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;color:var(--hat);text-decoration:none;font-size:15px}
+.note{color:var(--muted);font-size:15px;max-width:70ch}
+footer{border-top:1px solid var(--line);padding:18px max(5vw,16px);color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:760px){ .tools{grid-template-columns:1fr} .flow{grid-template-columns:1fr} .flow i{transform:rotate(90deg)} header span{display:none} }
+@media (prefers-reduced-motion:reduce){ .tool{transition:none} .tool:hover{transform:none} }
+</style></head><body>
+<header><img src="icons/logo.png" alt="UBC Steel Bridge"><span>Construction Sub-team</span></header>
+<main>
+<h1>Construction sequence tools</h1>
+<p class="lead">Turn any bridge design into a construction sequence: bring in the S-FRAME stick model, decide the members and joints, set up the competition site, then plan the build stage by stage.</p>
+<div class="flow" aria-label="How the tools connect"><div><b>S-FRAME .TEL</b>2D stick model</div><i aria-hidden="true">→</i><div><b>Bridge file</b>members · joints · site</div><i aria-hidden="true">→</i><div><b>Sequence</b>stages · lifts</div></div>
+<div class="tools">
+  <a class="tool" href="builder/"><span class="n">STEP 1</span><h2>Bridge Model Builder</h2><p>From the analysis model to buildable pieces.</p>
+    <ul><li>Import an S-FRAME .TEL file</li><li>Group sticks into members, checked against the member box</li><li>Add laterals, struts and X braces between the trusses</li><li>Set every joint: EW or SLOT, bolts, yard or site</li><li>Type in the construction site and check the fit</li></ul><span class="go">Open the builder →</span></a>
+  <a class="tool" href="studio/"><span class="n">STEP 2</span><h2>Sequence Studio</h2><p>Plan the build on the site, stage by stage.</p>
+    <ul><li>Open a bridge file and a construction site</li><li>Group pieces into lifts and stages</li><li>Play the build and scrub through it</li><li>Timing, builders and checks are on the way</li></ul><span class="go">Open the studio →</span></a>
+</div>
+<h3>Sample files</h3>
+<div class="files"><a href="samples/angled-highway-example.site.json" download>Angled highway site (example)</a></div>
+<p class="note">Team bridge designs aren’t kept in this public repository. Get the current .TEL or bridge file from the Construction Sub-team drive.</p>
+<h3>Good to know</h3>
+<p class="note">Your work is saved in your own browser on each computer. To share it, download the bridge, site or sequence file and pass it on, or commit it to this repository. After the first visit the tools also work without internet; in Chrome or Edge, “Install app” in the address bar adds them like a desktop app.</p>
+</main>
+<footer>UBC Steel Bridge · Construction Sub-team · 2026–27</footer>
+<script>if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>
